@@ -80,7 +80,7 @@ hive -e "select dt,
 		from tianyi_news_months
 		where clickpv >= ${pv_pos_threshold} and
 			  ctr >= ${ctr_pos_threshold}
-		" | awk -F'\t' '{print 1"\t"$3}' > training_samples
+		" | awk -F'\t' '{print 1"\t"$3}' > train_samples
 hive -e "select dt,
 				newstype,
 				title,
@@ -90,5 +90,5 @@ hive -e "select dt,
 		from tianyi_news_months
 		where clickpv <= ${pv_neg_threshold} and
 			  ctr <= ${ctr_neg_threshold}
-		" | awk -F'\t' '{print 0"\t"$3}' >> training_samples
+		" | awk -F'\t' '{print 0"\t"$3}' >> train_samples
 
