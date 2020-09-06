@@ -308,7 +308,7 @@ def batch_yield(x, y, batch_size, shuffle):
 	"""
 	if shuffle:
 		idx = range(len(y))
-		random.shuffle(list(idx))
+		random.shuffle(idx)
 		x = x[idx]
 		y = y[idx]
 
